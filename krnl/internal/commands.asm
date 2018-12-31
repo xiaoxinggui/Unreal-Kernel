@@ -3,11 +3,6 @@ cmd_help:           db "help", 0
 cmd_reboot:         db "reboot", 0
 cmd_clear:          db "clear", 0
 cmd_list:           db "ls", 0
-cmd_raphael:        db "raphael", 0
-
-raphael_cmd:
-    mov byte[raphael], 0xff
-    jmp shell_master
 
 list_files:
     mov ax, file_cache

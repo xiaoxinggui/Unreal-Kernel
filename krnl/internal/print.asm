@@ -8,9 +8,6 @@ teleprint:
     
 start_teleprint:
     pusha
-    cmp byte[raphael], 0x00
-    je teleprint_loop
-    mov si, raphael_str
 teleprint_loop:
     ; Greeneish green
     mov ah, 0x09
@@ -36,5 +33,3 @@ teleprint_done:
     popa
     retn
 
-raphael:        db 0x00
-raphael_str:    db "Stanley ", 0

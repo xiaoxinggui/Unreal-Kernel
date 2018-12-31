@@ -31,7 +31,7 @@ setup:
     xor ah, ah	    ; ah must be zero for video mode
     xor bx, bx
     mov ax, 0x1003  ; text mode with some attributes
-	int 0x10
+    int 0x10
 
     mov ah, 0x02
     xor bh, bh

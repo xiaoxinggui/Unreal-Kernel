@@ -4,23 +4,25 @@ org 0x7c00
 jmp short bootsector_start
 nop
 
+; Make sure we are at the proper byte to start the BPB
 times 0x03 - ($ - $$) db 0x00
+
 ; The BPB starts here
-bpbOEM:						db "UNREALOS"
+bpbOEM:					db "UNREALOS"
 bpbBytesPerSector:			dw 0x200
-bpbSectorsPerCluster:		db 0x01
+bpbSectorsPerCluster:			db 0x01
 bpbReservedSectors:			dw 0x44
 bpbNumberOfFATs:			db 0x02
 bpbRootEntries:				dw 0xe0
 bpbTotalSectors:			dw 0xb40
-bpbMedia:					db 0xf8
+bpbMedia:				db 0xf8
 bpbSectorsPerFAT:			dw 0x09
 bpbSectorsPerTrack:			dw 0x12
-bpbHeadsPerCylinder:		dw 0x02
+bpbHeadsPerCylinder:			dw 0x02
 bpbHiddenSectors:			dd 0x00
 bpbTotalSectorsBig:			dd 0x00
 bsDriveNumber:				db 0x00
-bsUnused:					db 0x00
+bsUnused:				db 0x00
 bsExtBootSignature:			db 0x29
 bsSerialNumber:				dd 0x12345678
 bsVolumeLabel:				db "UNREAL OS  "
@@ -146,3 +148,4 @@ enter_unreal:
 
     nop
 times 0x800-($-$$) db 0x00
+
