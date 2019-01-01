@@ -1,4 +1,10 @@
+; WARNING:
+; Most code here is not mine, but from https://github.com/Druaga1/DankOS/
+; Huge credit to the echidna development team (now, the people who *worked* on dank os)
 
+; TODO: Comment this code properly
+
+; Switch to a20
 a20_check:
     push ax
     push bx
@@ -10,8 +16,8 @@ a20_check:
     not ax
     mov fs, ax
 
-    mov ax, word [es:0x7DFE]
-    cmp word [fs:0x7E0E], ax
+    mov ax, word [es:0x7dfe]
+    cmp word [fs:0x7e0e], ax
     je .change_values
 
 .enabled:
@@ -26,7 +32,7 @@ a20_check:
     stc
 
 .done:
-    mov word [es:0x7DFE], ax
+    mov word [es:0x7dfe], ax
     pop fs
     pop es
     pop bx
@@ -49,11 +55,11 @@ enable_a20:
     cli
 
     call .a20wait
-    mov al, 0xAD
+    mov al, 0xad
     out 0x64, al
 
     call .a20wait
-    mov al, 0xD0
+    mov al, 0xd0
     out 0x64, al
 
     call .a20wait2
@@ -61,7 +67,7 @@ enable_a20:
     push eax
 
     call .a20wait
-    mov al, 0xD1
+    mov al, 0xd1
     out 0x64, al
 
     call .a20wait
@@ -70,7 +76,7 @@ enable_a20:
     out 0x60, al
 
     call .a20wait
-    mov al, 0xAE
+    mov al, 0xae
     out 0x64, al
 
     call .a20wait
