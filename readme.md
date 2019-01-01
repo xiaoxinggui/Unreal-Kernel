@@ -24,6 +24,22 @@ However, it is not 100% necessary to have a linux installation in your machine,
 as you can use some terminals that already have this tools (like git terminal),
 or even better,  you can just install the linux subsystem for windows.
 
+#### Failed build
+Build script is incredibly simple, same as dependencies, so you should be able to
+build wihtout problems. In case you have, check the dependencies. In case it is
+still failing, even if you know everything is 100% ok, open an issue in this
+repository, and I might be able to help you.
+
+#### Successfull build
+What's next?
+You can test it with QEMU (or any vm really(QEMU comes by default in the build script)).
+Just make sure that you boot as floppy, as the format is flat binary for now,
+and VMs shouldn't be able to support it running as a HDD or DVD...
+
+You should get something like this in a successfull build, when testing it:
+
+![alt text](data/success.png "Yeet!")
+
 #### Other stuff i used (to learn basically)
 * https://github.com/mig-hub/MikeOS
 * https://github.com/cfenollosa/os-tutorial
