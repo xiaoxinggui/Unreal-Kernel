@@ -43,6 +43,7 @@ You should get something like this in a successfull build, when testing it:
 #### Other stuff i used (to learn basically)
 * https://github.com/mig-hub/MikeOS
 * https://github.com/cfenollosa/os-tutorial
+* https://littleosbook.github.io/
 
 #### External links and misc
 * https://wiki.osdev.org/Expanded_Main_Page
