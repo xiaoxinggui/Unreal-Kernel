@@ -2,8 +2,8 @@ compare_strings:
     pusha
 
 compare_loop:
-    mov al, [si]
-	mov bl, [di]
+    mov al, byte[si]
+	mov bl, byte[di]
 
     cmp al, bl
     jne compare_not_same

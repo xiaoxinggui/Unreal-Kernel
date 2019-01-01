@@ -5,7 +5,7 @@ nasm -f bin krnl/main.asm -o bin/kernelos.exe
 
 # Build
 echo ">> Building..."
-cat bin/bootsect.exe bin/kernelos.exe > unreal.bin
+cat bin/bootsect.exe bin/kernelos.exe > unreal.img
 
 # Clean
 echo ">> Cleaning..."
@@ -15,5 +15,4 @@ cd ..
 
 # Test
 echo ">> Starting QEMU..."
-qemu-system-i386 -fda unreal.bin -d guest_errors
-
+qemu-system-i386 -fda unreal.img -d guest_errors

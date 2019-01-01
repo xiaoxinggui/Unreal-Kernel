@@ -19,6 +19,7 @@ shell_main:
 
     jmp shell_master
 
+; ----------------------
 shell_master:
     ; Each time we hit enter
     call clear_buffer
@@ -45,10 +46,24 @@ command:
     mov ah, 0x00
     int 0x16
 
+    ; If null
+    cmp al, 0x00
+    je command
+    cmp al, 0xff
+    je command
+    ; If enter
     cmp al, 0x0d
     je key_enter
+    ; If backspace
     cmp al, 0x08
     je key_back
+
+    ; Else, we got here
+    ; so print it
+
+    ; If string not too large ofc
+    cmp byte[cursor_right], 0x40
+    jge bad_too_large
 
     mov ah, 0x0e
     int 0x10
@@ -75,8 +90,14 @@ key_enter:
     xor bh, bh
     int 0x10
 
+    call clear_scnd_buffer
+
     ; Mov our command to si
     mov si, command_buffer
+    mov di, scnd_buffer
+    call last_arg
+
+    mov si, scnd_buffer
 
     ; Then, actual commands.
     mov di, cmd_help
@@ -98,6 +119,10 @@ key_enter:
     mov di, cmd_list
     call compare_strings
     jc near list_files
+
+    mov di, cmd_print
+    call compare_strings
+    jc near print_command_exec
 
     ; If we got here, then the command is wrong
     mov si, str_thing_char
@@ -131,6 +156,7 @@ key_back:
 
     jmp command
 
+; ----------------------
 clear_buffer:
     pusha
     mov cx, 0x200
@@ -144,6 +170,39 @@ clear_loop:
     popa
     retn
 
+; ----------------------
+clear_scnd_buffer:
+    pusha
+    mov eax, scnd_buffer
+    mov cx, 0x200
+clear_scnd_loop:
+    add eax, 0x01
+    mov byte[eax], 0x00
+    loop clear_scnd_loop
+    popa
+    retn
+
+; ----------------------
+bad_too_large:
+    pusha
+    call print_endl
+    mov si, str_bad_large
+    call teleprint
+    call print_endl
+    mov si, command_buffer
+    call teleprint
+    jmp command
+    popa
+    retn
+
+str_bad_large:      db "Command must be less than 64 characters long.", 0
+
 cursor_right:       db 0x00
 command_buffer:     times 0x200 db 0x00
-
+                    nop
+                    db 0xff
+scnd_buffer:	    times 0x200 db 0x00
+                    nop
+                    db 0xff
+                    db 0xff
+                    db 0xff

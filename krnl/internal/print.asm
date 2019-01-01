@@ -32,4 +32,3 @@ teleprint_loop:
 teleprint_done:
     popa
     retn
-
