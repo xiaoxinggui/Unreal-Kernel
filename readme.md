@@ -38,7 +38,7 @@ and VMs shouldn't be able to support it running as a HDD or DVD...
 
 You should get something like this in a successfull build, when testing it:
 
-![alt text](data/success.png "Yeet!")
+![alt text](data/pictures/success.png "Yeet!")
 
 #### Other stuff i used (to learn basically)
 * https://github.com/mig-hub/MikeOS

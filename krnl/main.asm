@@ -12,18 +12,20 @@ start:
 
     call shell_main
 
-    jmp $
+halt_cpu:
+    hlt
+    jmp halt_cpu
 
-; Data
-str_alive:              db "Unreal OS shell. Welcome! Type 'help' for a list of commands.", 0
-str_shell_cmd_pref:     db "# ", 0
-str_shell_dir:          db "/", 0
-str_root_char:          db "~", 0
-str_thing_char:         db "'", 0
-str_bad_command:        db " is not a recognized command or operation.", 0
-
-; System(important internal) includes
-%include "krnl/system/shell.asm"
+; System Shell
+%include "krnl/shell/shell.asm"
+%include "krnl/shell/master.asm"
+%include "krnl/shell/command.asm"
+%include "krnl/shell/buffers/first.asm"
+%include "krnl/shell/buffers/second.asm"
+%include "krnl/shell/errors/long.asm"
+%include "krnl/shell/errors/no_command.asm"
+%include "krnl/shell/keys/enter.asm"
+%include "krnl/shell/keys/backspace.asm"
 
 ; Include internal shell commands
 %include "krnl/commands/clear.asm"
@@ -41,3 +43,11 @@ str_bad_command:        db " is not a recognized command or operation.", 0
 %include "krnl/internal/disk.asm"
 %include "krnl/internal/get_arg.asm"
 %include "krnl/internal/last_arg.asm"
+%include "krnl/internal/kpci.asm"
+
+; Data
+%include "data/kpci_data.inc"
+%include "data/shell_data.inc"
+
+; idk
+nop
