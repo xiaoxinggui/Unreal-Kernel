@@ -1,5 +1,5 @@
 # Unreal OS
-> Custom OS created by Jacob Lagares Pozo in unreal mode.
+> Unreal OS™ created by Jacob Lagares Pozo in unreal mode.
 
 #### Warning
 Lots of code are taken from https://github.com/Druaga1/DankOS/
