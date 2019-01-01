@@ -25,6 +25,14 @@ str_bad_command:        db " is not a recognized command or operation.", 0
 ; System(important internal) includes
 %include "krnl/system/shell.asm"
 
+; Include internal shell commands
+%include "krnl/commands/clear.asm"
+%include "krnl/commands/help.asm"
+%include "krnl/commands/list.asm"
+%include "krnl/commands/print.asm"
+%include "krnl/commands/reboot.asm"
+%include "krnl/commands/shutdown.asm"
+
 ; Internal kernel includes
 %include "krnl/internal/endl.asm"
 %include "krnl/internal/print.asm"
