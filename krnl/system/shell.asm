@@ -127,7 +127,7 @@ key_enter:
     ; If we got here, then the command is wrong
     mov si, str_thing_char
     call teleprint
-    mov si, command_buffer
+    mov si, scnd_buffer
     call teleprint
     mov si, str_thing_char
     call teleprint

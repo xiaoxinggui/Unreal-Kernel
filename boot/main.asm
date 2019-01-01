@@ -1,6 +1,8 @@
 use16
 org 0x7c00
 
+; TODO: Comment all this file
+
 jmp short bootsector_start
 nop
 
@@ -148,4 +150,3 @@ enter_unreal:
 
     nop
 times 0x800-($-$$) db 0x00
-

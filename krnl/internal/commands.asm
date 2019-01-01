@@ -89,6 +89,10 @@ str_help_9:           db "Type any filename starting with './' to execute it.", 
 
 
 shutdown_main:
+    mov ah, 0x01
+    mov cx, 0x2007
+    int 0x10
+
     call print_endl
     mov si, str_ok
     call teleprint
@@ -104,6 +108,13 @@ shutdown_main:
     call print_endl
     mov si, str_stage_2
     call teleprint
+
+    mov al, ']'
+    mov ah, 0x09
+    mov cx, 0x01
+    xor bh, bh
+    mov bl, 0x02
+    int 0x10
     ; Wait some time
     ; (with a cool animation ;)
     mov cx, 0x05
@@ -113,8 +124,8 @@ wait_loop:
     int 0x15
     mov si, str_dot
     call teleprint
-    mov al, ']'
     push cx
+    mov al, ']'
     mov ah, 0x09
     mov cx, 0x01
     xor bh, bh
@@ -122,6 +133,10 @@ wait_loop:
     int 0x10
     pop cx
     loop wait_loop
+
+    mov ah, 0x01
+    mov cx, 0x0007
+    int 0x10
 
     ; Halt CPU
     call print_endl
