@@ -82,6 +82,8 @@ system_powerdown_halt:
     call teleprint
     mov cx, 0x03
 
+    jmp system_halt
+
 system_reboot:
     ; This method of rebooting is kinda ugly, but it was the most efficient and compatible way i found to do it.
     ; We cause the CPU to triple fault, so it does reboot itself.
@@ -95,4 +97,4 @@ system_halt:
 halt_loop:
     cli
     hlt
-    jmp 0xffff:halt_loop
+    jmp halt_loop
