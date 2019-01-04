@@ -1,4 +1,5 @@
 use16
+org 0x0000
 
 %include "krnl/system/flush.asm"
 %include "krnl/system/setup.asm"

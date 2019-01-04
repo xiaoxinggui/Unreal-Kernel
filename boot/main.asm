@@ -89,10 +89,8 @@ str_error:                  db "ERROR: System halted.", 0
 ; Padding and magic numbers
 times 0x1fe - ($ - $$) db 0x00
 signature:
-use64
-push rbp
+push bp
 stosb
-use16
 
 stage2:
     mov si, str_bootsector
