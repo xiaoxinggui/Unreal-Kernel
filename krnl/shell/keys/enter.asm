@@ -53,3 +53,4 @@ key_enter:
 
     jmp shell_master
 
+db ":)"
