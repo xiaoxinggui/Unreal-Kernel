@@ -1,9 +1,14 @@
-; Headers
-%include "headers/unreal.inc"
-
 ; We'll work in 16 bits, unreal mode
 use16
 org 0x0000
+
+jmp short krnl_main
+nop
+
+; Headers
+%include "headers/unreal.inc"
+
+krnl_main:
 
 ; Setup kernel and registries
 %include "krnl/system/flush.asm"
