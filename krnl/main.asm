@@ -2,15 +2,14 @@
 use16
 org 0x0000
 
-jmp short krnl_main
+jmp 0x0000:krnl_main
 nop
+
+db "UNREAL KERNEL   "
+db "v0.01           "
 
 ; Headers
 %include "headers/unreal.inc"
-db "UNREAL KERNEL   "
-db "v0.01           "
-db "Jacob Lagares   "
-db "jlagarespo      "
 
 krnl_main:
 
