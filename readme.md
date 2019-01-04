@@ -16,7 +16,7 @@ trying it out.)
 
 #### Dependencies
 * ``nasm``, the assembly compiler. https://nasm.us/
-* * ``Python`` Version must be 3.6+. https://www.python.org/
+* ``Python`` Version must be 3.6+. https://www.python.org/
 * ``Linux`` (check next section)
 
 #### Why need of linux?
