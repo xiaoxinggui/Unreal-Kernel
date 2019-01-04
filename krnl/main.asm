@@ -7,6 +7,10 @@ nop
 
 ; Headers
 %include "headers/unreal.inc"
+db "UNREAL KERNEL   "
+db "v0.01           "
+db "Jacob Lagares   "
+db "jlagarespo      "
 
 krnl_main:
 
