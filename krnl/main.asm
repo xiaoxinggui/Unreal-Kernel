@@ -25,7 +25,6 @@ halt_cpu:
     jmp halt_cpu
 
 ; Code goes here
-
 ; System Shell
 %include "krnl/shell/shell.asm"
 %include "krnl/shell/master.asm"
@@ -53,12 +52,14 @@ halt_cpu:
 %include "krnl/internal/get_arg.asm"
 %include "krnl/internal/last_arg.asm"
 %include "krnl/internal/kpci.asm"
+%include "krnl/internal/promp.asm"
 
 ; Data
 %include "data/kpci_data.inc"
 %include "data/shell_data.inc"
 %include "data/commands.inc"
 %include "data/help_text.inc"
+%include "data/promp.inc"
 
 ; idk
 nop
