@@ -76,19 +76,11 @@ halt:
 ; Includes
 %include "boot/etc/disk.asm"
 %include "boot/etc/graphics.asm"
-
-; Data
-str_bootsector:             db "BOOTSECTOR: ", 0
-str_alive:                  db "Alive signal.", 0
-str_stage2:                 db "Commencing stage 2...", 0
-str_a20:                    db "Enablig A20...", 0
-str_unreal:                 db "Enabling unreal mode...", 0
-str_lkrnl:                  db "Loading kernel...", 0
-str_error:                  db "ERROR: System halted.", 0
+%include "data/bootsector.inc"
 
 ; Padding and magic numbers
 times 0x1fe - ($ - $$) db 0x00
-signature:
+magicnums:
 push bp
 stosb
 
@@ -122,8 +114,8 @@ enter_unreal:
     mov ax, 0x04
     mov bx, 0x0000
     mov cx, 0x40
-    call read_sectors
 
+    call read_sectors
     jc error
 
     mov ax, es
@@ -140,11 +132,13 @@ enter_unreal:
 
     rep movsb
 
+    ; The far jump to the kernel
     jmp 0xffff:0x0010
 
 
 %include "boot/etc/gdt.asm"
 %include "boot/etc/a20.asm"
 
-    nop
+nop
+; Alignement
 times 0x800-($-$$) db 0x00

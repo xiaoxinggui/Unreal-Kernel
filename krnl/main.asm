@@ -1,9 +1,16 @@
+; Headers
+%include "headers/unreal.inc"
+
+; We'll work in 16 bits, unreal mode
 use16
 org 0x0000
 
+; Setup kernel and registries
 %include "krnl/system/flush.asm"
 %include "krnl/system/setup.asm"
 
+; Everything should be already setup, so we
+; only have to start doing things
 start:
     call print_endl
 
@@ -16,6 +23,8 @@ start:
 halt_cpu:
     hlt
     jmp halt_cpu
+
+; Code goes here
 
 ; System Shell
 %include "krnl/shell/shell.asm"
@@ -40,7 +49,6 @@ halt_cpu:
 %include "krnl/internal/endl.asm"
 %include "krnl/internal/print.asm"
 %include "krnl/internal/string_compare.asm"
-%include "krnl/internal/commands.asm"
 %include "krnl/internal/disk.asm"
 %include "krnl/internal/get_arg.asm"
 %include "krnl/internal/last_arg.asm"
@@ -49,6 +57,8 @@ halt_cpu:
 ; Data
 %include "data/kpci_data.inc"
 %include "data/shell_data.inc"
+%include "data/commands.inc"
+%include "data/help_text.inc"
 
 ; idk
 nop
