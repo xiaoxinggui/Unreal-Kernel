@@ -85,11 +85,14 @@ system_powerdown_halt:
     jmp system_halt
 
 system_reboot:
-    ; This method of rebooting is kinda ugly, but it was the most efficient and compatible way i found to do it.
-    ; We cause the CPU to triple fault, so it does reboot itself.
-    jmp 0xffff:0x0000
-    ; If it is still running, jump to the halt loop
-    jmp system_halt
+    ; Use BIOS to reboot the computer
+    ; ax must be zero
+    xor ax, ax
+    ; i am too lazy to manually configure ACPI, so
+    ; let the bios do that for us
+    int 0x19
+    ; in case reboot fails, it will continue down to the
+    ; halt loop.
 
 ; Halt system forever...
 system_halt:
