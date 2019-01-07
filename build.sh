@@ -1,5 +1,5 @@
 # Compile
-echo ">> Compiling..."
+echo ">> Assembling..."
 nasm -f bin "boot/main.asm" -o "bin/bootsect.exe"
 nasm -f bin "krnl/main.asm" -o "bin/kernelos.exe"
 
@@ -14,6 +14,7 @@ rm *.exe *.bin *.o -rf
 cd ..
 
 # Checksum
+echo ">> Calculating checksums..."
 python etc/python/hash.py "bin/unreal.img"
 
 # Test
