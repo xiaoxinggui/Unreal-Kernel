@@ -60,6 +60,7 @@ halt_cpu:
 %include "krnl/commands/print.asm"
 %include "krnl/commands/reboot.asm"
 %include "krnl/commands/shutdown.asm"
+%include "krnl/commands/log.asm"
 
 ; Internal kernel includes
 %include "krnl/internal/clock.asm"
@@ -80,6 +81,7 @@ halt_cpu:
 %include "data/help_text.inc"
 %include "data/promp.inc"
 %include "data/kernel_data.inc"
+%include "data/log.inc"
 
 ; idk
 nop

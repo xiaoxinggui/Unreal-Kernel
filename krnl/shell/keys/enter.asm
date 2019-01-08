@@ -40,6 +40,10 @@ key_enter:
     call compare_strings
     jc near print_command_exec
 
+    mov di, cmd_log
+    call compare_strings
+    jc near log_command
+
     ; If we got here, then the command is wrong
     call no_command
 

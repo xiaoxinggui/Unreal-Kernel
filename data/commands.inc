@@ -4,3 +4,4 @@ cmd_reboot:         db "reboot", 0
 cmd_clear:          db "clear", 0
 cmd_list:           db "ls", 0
 cmd_print:          db "print", 0
+cmd_log:            db "log", 0
