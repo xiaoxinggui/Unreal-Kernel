@@ -1,3 +1,9 @@
+; First of all
+; setup our noice cpu
+cli
+cpuid
+sti
+
 ; Set all segments to were we loaded
 cli
 mov ax, 0xffff

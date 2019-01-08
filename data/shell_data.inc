@@ -1,5 +1,5 @@
 ; Shell data
-str_alive:              db "Unreal OS shell. Welcome! Type 'help' for a list of commands.", 0
+str_welcome:            db "Unreal OS shell. Welcome! Type 'help' for a list of commands.", 0
 str_shell_cmd_pref:     db "# ", 0
 str_shell_dir:          db "/", 0
 str_root_char:          db "~", 0

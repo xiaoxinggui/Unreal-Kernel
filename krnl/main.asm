@@ -13,20 +13,22 @@ db "v0.01           "
 
 krnl_main:
 
+mov si, str_alive
+call krnl_log
+
 ; Setup kernel and registries
+mov si, str_flushed
+call krnl_log
 %include "krnl/system/flush.asm"
+mov si, str_cpuid
+call krnl_log
 %include "krnl/system/setup.asm"
 
 ; Everything should be already setup, so we
 ; only have to start doing things
 start:
-    call print_endl
-
-    mov si, str_alive
-    mov bl, 0x70
-    call teleprint
-    xor bl, bl
-    call print_endl
+    mov si, str_cpuid
+    call krnl_log
 
     call shell_main
 
@@ -35,6 +37,11 @@ halt_cpu:
     jmp halt_cpu
 
 ; Code goes here
+; System
+%include "krnl/system/log.asm"
+%include "krnl/system/flush.asm"        ; Reincluded
+%include "krnl/system/setup.asm"        ; Reincluded
+
 ; System Shell
 %include "krnl/shell/shell.asm"
 %include "krnl/shell/master.asm"
@@ -55,8 +62,10 @@ halt_cpu:
 %include "krnl/commands/shutdown.asm"
 
 ; Internal kernel includes
+%include "krnl/internal/clock.asm"
 %include "krnl/internal/endl.asm"
 %include "krnl/internal/print.asm"
+%include "krnl/internal/print_hex.asm"
 %include "krnl/internal/string_compare.asm"
 %include "krnl/internal/disk.asm"
 %include "krnl/internal/get_arg.asm"
@@ -70,6 +79,7 @@ halt_cpu:
 %include "data/commands.inc"
 %include "data/help_text.inc"
 %include "data/promp.inc"
+%include "data/kernel_data.inc"
 
 ; idk
 nop
