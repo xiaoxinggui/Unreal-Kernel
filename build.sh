@@ -20,3 +20,4 @@ python etc/python/hash.py "bin/unreal.img"
 # Test
 echo ">> Starting QEMU..."
 qemu-system-i386 -fda "bin/unreal.img" -d guest_errors
+# Don't even try --nographic, it messes everything up...
