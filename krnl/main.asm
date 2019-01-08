@@ -85,5 +85,3 @@ halt_cpu:
 
 ; idk
 nop
-
-times 0x8000 - ($ - $$) db 0x00
