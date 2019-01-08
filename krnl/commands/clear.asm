@@ -6,7 +6,7 @@ clear_screen:
     int 0x10
 
     mov ah, 0x09
-    mov bl, 0x02
+    mov bl, 0x07
     mov cx, 0xffff
     int 0x10
 

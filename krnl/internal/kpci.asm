@@ -43,7 +43,7 @@ shutdown_animation_wait_loop:
     mov ah, 0x09
     mov cx, 0x01
     xor bh, bh
-    mov bl, 0x02
+    mov bl, 0x07
     int 0x10
     ; Wait some time
     ; (with a cool animation ;)
@@ -63,7 +63,7 @@ shutdown_wait_loop:
     mov ah, 0x09
     mov cx, 0x01
     xor bh, bh
-    mov bl, 0x02
+    mov bl, 0x07
     int 0x10
     pop cx
     loop shutdown_wait_loop

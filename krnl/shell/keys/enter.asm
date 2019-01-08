@@ -6,14 +6,6 @@ key_enter:
     ; Enter key ofc
     call print_endl
 
-    ; Greenish green
-    mov ah, 0x09
-    mov al, 0x00
-    mov bl, 0x02
-    mov cx, 0xfff
-    xor bh, bh
-    int 0x10
-
     call clear_scnd_buffer
 
     ; Mov our command to si

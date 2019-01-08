@@ -4,15 +4,20 @@ teleprint:
     ; SUBTOURINE
     ; Teleprint
     ;   si = address of the string to print
-    ; reutrns nothing
-    
+    ; returns nothing
+    mov byte[last_color], bl
+
+    cmp bl, 0x00
+    jne start_teleprint
+
+    mov byte[last_color], 0x07
 start_teleprint:
     pusha
 teleprint_loop:
-    ; Greeneish green
+    ; Color
     mov ah, 0x09
     mov al, 0x00
-    mov bl, 0x02
+    mov bl, byte[last_color]
     mov cx, 0x01
     xor bh, bh
     int 0x10
@@ -32,3 +37,5 @@ teleprint_loop:
 teleprint_done:
     popa
     retn
+
+last_color:     db 0x00

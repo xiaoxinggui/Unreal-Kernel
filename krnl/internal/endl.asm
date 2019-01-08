@@ -3,6 +3,7 @@ print_endl:
     ; Print endline
     ; Returns nothing and takes nothing as argment
 
+    xor bl, bl
     pusha
 
     mov ah, 0x0e

@@ -23,7 +23,9 @@ start:
     call print_endl
 
     mov si, str_alive
+    mov bl, 0x70
     call teleprint
+    xor bl, bl
     call print_endl
 
     call shell_main
