@@ -112,7 +112,7 @@ enter_unreal:
     mov ax, 0x2000
     mov es, ax
     mov ax, 0x04
-    mov bx, 0x0000
+    xor bx, bx
     mov cx, 0x40
 
     call read_sectors
@@ -131,6 +131,13 @@ enter_unreal:
     not cx
 
     rep movsb
+
+    ; Prepare CPU segments
+    sti
+    mov ax, 0xffff
+    mov ds, ax
+    mov es, ax
+    cli
 
     ; The far jump to the kernel
     jmp 0xffff:0x0010

@@ -122,9 +122,7 @@ system_powerdown_halt:
 
 system_reboot:
     ; This method of rebooting is kinda ugly, but it was the most efficient and compatible way i found to do it.
-    ; Use BIOS to reboot the computer
     ; We cause the CPU to triple fault, so it does reboot itself.
-    ; ax must be zero
     jmp 0xffff:0x0000
     xor ax, ax
     ; If it is still running, jump to the halt loop
