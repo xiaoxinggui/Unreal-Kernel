@@ -38,10 +38,10 @@ debug_command:
     mov dword[dbg_dat_edx], edx
     mov dword[dbg_dat_ebx], ebx
 
-    mov dword[dbg_dat_esp], eax
-    mov dword[dbg_dat_ebp], ecx
-    mov dword[dbg_dat_esi], edx
-    mov dword[dbg_dat_edi], ebx
+    mov dword[dbg_dat_esp], esp
+    mov dword[dbg_dat_ebp], ebp
+    mov dword[dbg_dat_esi], esi
+    mov dword[dbg_dat_edi], edi
 
     call print_endl
 
