@@ -1,4 +1,5 @@
 
+; ---------------------
 key_enter:
     cmp byte [cursor_right], 0x00
     jle shell_master
@@ -43,6 +44,10 @@ key_enter:
     mov di, cmd_log
     call compare_strings
     jc near log_command
+
+    mov di, cmd_debug
+    call compare_strings
+    jc near debug_command
 
     ; If we got here, then the command is wrong
     call no_command

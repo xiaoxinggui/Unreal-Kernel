@@ -26,7 +26,7 @@ bpbTotalSectorsBig:			dd 0x00
 bsDriveNumber:				db 0x00
 bsUnused:			    	db 0x00
 bsExtBootSignature:			db 0x29
-bsSerialNumber:				dd 0x12345678
+bsSerialNumber:				dd 0x00001337
 bsVolumeLabel:				db "UNREAL OS  "
 bsFileSystem:				db "FAT12   "
 
