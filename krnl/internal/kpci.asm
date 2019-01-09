@@ -131,13 +131,12 @@ system_reboot:
 
 ; Halt system forever...
 system_halt:
-    nop
+    cli
 halt_loop:
     ; Halt until next interrupt
     ; having interrupts disabled...
     ; this sounds to me like an
     ; infinite loop......
-    cli
     hlt
     ; If for any weird reason, we get here(we shouldn't
     ; because interrupts are disabled and they can't
