@@ -2,16 +2,27 @@
 use16
 org 0x0000
 
-jmp 0x0000:krnl_main
+jmp krnl_main
 nop
 
 db "UNREAL KERNEL   "
 db "v0.01           "
 
 ; Headers
-%include "headers/unreal.inc"
+%include "headers/asm/unreal.inc"
 
 krnl_main:
+cli
+xor ax, ax
+mov ss, ax
+mov sp, 0xffff
+cld
+mov ax, 0x2000
+mov ds, ax
+mov es, ax
+mov fs, ax
+mov gs, ax
+sti
 
 mov si, str_alive
 call krnl_log
