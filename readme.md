@@ -1,5 +1,6 @@
 # Unreal OS
 > Unreal OS™ created by Jacob Lagares Pozo in unreal mode.
+[!alt text](https://img.shields.io/github/search/unrealorg/Unreal-Kernel/jmp.svg "Jmp counter")
 
 #### Warning
 Lots of code are taken from https://github.com/Druaga1/DankOS/
