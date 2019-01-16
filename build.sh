@@ -25,6 +25,8 @@ cp "bin/kernelos.exe" "b:/bin/"
 cp "bin/bootsect.exe" "b:/bin/backup/"
 cp "bin/loadkrnl.sys" "b:/bin/backup/"
 
+cp "LICENSE" "b:/etc"
+
 cp "headers/" "b:/lib/" -r
 cp "etc/home/" "b:/" -r
 cp "b:/home/" "b:/etc/homeback/" -r

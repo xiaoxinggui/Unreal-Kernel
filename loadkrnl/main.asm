@@ -83,34 +83,6 @@ enter_unreal:
     mov cx, 0x40
 
 %include "loadkrnl/etc/loader.asm"
-
-    jmp $
-
-    mov ax, es
-    mov ds, ax
-    xor ax, ax
-    not ax
-    mov es, ax
-
-    xor si, si
-    xor di, di
-
-    xor cx, cx
-    not cx
-
-    rep movsb
-
-    ; Prepare CPU segments
-    sti
-    mov ax, 0xffff
-    mov ds, ax
-    mov es, ax
-    cli
-
-    ; The far jump to the kernel
-    jmp 0xffff:0x0010
-
-
 %include "loadkrnl/etc/gdt.asm"
 %include "loadkrnl/etc/a20.asm"
 
