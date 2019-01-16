@@ -56,8 +56,10 @@ shutdown_wait_loop:
     mov ah, 0x86
     xor dx, dx
     int 0x15
+
     mov si, str_dot
     call teleprint
+
     push cx
     mov al, ']'
     mov ah, 0x09
@@ -66,6 +68,7 @@ shutdown_wait_loop:
     mov bl, 0x07
     int 0x10
     pop cx
+
     loop shutdown_wait_loop
 
     ; Restore cursor
@@ -91,14 +94,19 @@ power_off_computer_via_bios:
     ; Power off
     ; let the bios do the hard work for us,
     ; as we aren't in unreal mode for any reason...
-    mov ax, 0x530e
+    mov ah, 0x53
+    mov al, 0x0e
+    mov ch, 0x01
+    mov cl, 0x02
     xor bx, bx
-    mov cx, 0x0102
     int 0x15
 
-    mov ax, 0x5307
-    mov bx, 0x0001
-    mov cx, 0x0003
+    mov ah, 0x53
+    mov al, 0x07
+    mov bl, 0x01
+    mov cl, 0x03
+    xor ch, ch
+    xor bh, bh
     int 0x15
 
 system_powerdown_halt:

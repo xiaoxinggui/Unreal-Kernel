@@ -17,7 +17,7 @@ else:
 
 with open(filename, "rb") as _file:
     while True:
-        print("Reading data...")
+        # print("Reading data...")
         dat = _file.read(chunk_size)
         if not dat:
             print("End of data.")

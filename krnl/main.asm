@@ -1,6 +1,6 @@
 ; We'll work in 16 bits, unreal mode
 use16
-org 0x0000
+org 0x0010
 
 jmp krnl_main
 nop
@@ -12,33 +12,18 @@ db "v0.01           "
 %include "headers/asm/unreal.inc"
 
 krnl_main:
-cli
-xor ax, ax
-mov ss, ax
-mov sp, 0xffff
-cld
-mov ax, 0x2000
-mov ds, ax
-mov es, ax
-mov fs, ax
-mov gs, ax
-sti
-
-mov si, str_alive
-call krnl_log
 
 ; Setup kernel and registries
-mov si, str_flushed
-call krnl_log
 %include "krnl/system/flush.asm"
-mov si, str_cpuid
-call krnl_log
 %include "krnl/system/setup.asm"
 
 ; Everything should be already setup, so we
 ; only have to start doing things
 start:
-    mov si, str_cpuid
+    call print_endl
+    call print_endl
+
+    mov si, str_loaded
     call krnl_log
 
     call shell_main

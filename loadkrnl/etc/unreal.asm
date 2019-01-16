@@ -16,19 +16,8 @@ mov eax, cr0
 or eax, 00000001b
 mov cr0, eax
 
-; Far jump to protected mode
-jmp 0x08:protected_mode
-
 ; Now in protected mode
 protected_mode:
-
-; Set all registers to a value (in this case 0x10, but it shouldn't really matter)
-mov ax, 0x10
-mov ds, ax
-mov es, ax
-mov fs, ax
-mov gs, ax
-mov ss, ax
 
 ; Exit protected mode.
 mov eax, cr0
@@ -38,16 +27,8 @@ mov cr0, eax
 ; Now in unreal mode
 ; We exited protected mode, so we are on real mode
 ; but remember that we didn't unload the gdt
-; noice :ok_hand:
-jmp 0x0000:unreal_mode
-
+; that means we are, in fact, in unreal mode
 unreal_mode:
-; Now flush all registers
-xor ax, ax
-mov ds, ax
-mov es, ax
-mov fs, ax
-mov gs, ax
 
 ; And set all the segments to were we loaded
 mov ax, 0x1000
