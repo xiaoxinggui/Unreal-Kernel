@@ -9,8 +9,4 @@ shell_main:
     xor bl, bl
     call print_endl
 
-    mov ah, 0x01
-    mov cx, 0x0007
-    int 0x10
-
     jmp shell_master

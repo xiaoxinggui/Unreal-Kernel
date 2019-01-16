@@ -20,7 +20,7 @@ pop ds
 sti
 
 ; Init graphics
-xor ah, ah	    ; ah must be zero for video mode
+xor ax, ax	    ; ah must be zero for video mode
 xor bx, bx
 mov ax, 0x1003  ; text mode with some attributes
 int 0x10

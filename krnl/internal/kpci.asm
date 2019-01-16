@@ -12,9 +12,9 @@ system_powerdown:
 
 inform_user_shutdown_request_send:
     ; Hide cursor
-    mov ah, 0x01
-    mov cx, 0x2007
-    int 0x10
+    ;mov ah, 0x01
+    ;mov cx, 0x2007
+    ;int 0x10
 
     ; Ugly formatted printing
     call print_endl
@@ -28,7 +28,7 @@ request_bios_poweroff:
     ; Request global power off
     ; to the BIOS
     mov ah, 0x42
-    mov al, 0x00
+    xor al, al
     int 0x15
 
 shutdown_animation_wait_loop:
@@ -72,9 +72,9 @@ shutdown_wait_loop:
     loop shutdown_wait_loop
 
     ; Restore cursor
-    mov ah, 0x01
-    mov cx, 0x0007
-    int 0x10
+    ;mov ah, 0x01
+    ;mov cx, 0x0007
+    ;int 0x10
 
     ; Print final things
     call print_endl
