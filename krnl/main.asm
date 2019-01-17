@@ -38,17 +38,6 @@ halt_cpu:
 %include "krnl/system/flush.asm"        ; Reincluded
 %include "krnl/system/setup.asm"        ; Reincluded
 
-; System Shell
-%include "krnl/shell/shell.asm"
-%include "krnl/shell/master.asm"
-%include "krnl/shell/command.asm"
-%include "krnl/shell/buffers/first.asm"
-%include "krnl/shell/buffers/second.asm"
-%include "krnl/shell/errors/long.asm"
-%include "krnl/shell/errors/no_command.asm"
-%include "krnl/shell/keys/enter.asm"
-%include "krnl/shell/keys/backspace.asm"
-
 ; Include internal shell commands
 %include "krnl/commands/clear.asm"
 %include "krnl/commands/help.asm"
@@ -59,17 +48,24 @@ halt_cpu:
 %include "krnl/commands/log.asm"
 %include "krnl/commands/debug.asm"
 
-; Internal kernel includes
-%include "krnl/internal/clock.asm"
-%include "krnl/internal/endl.asm"
-%include "krnl/internal/print.asm"
-%include "krnl/internal/print_hex.asm"
-%include "krnl/internal/string_compare.asm"
-%include "krnl/internal/disk.asm"
-%include "krnl/internal/get_arg.asm"
-%include "krnl/internal/last_arg.asm"
-%include "krnl/internal/kpci.asm"
-%include "krnl/internal/promp.asm"
+; Drivers
+%include "krnl/drivers/clock.asm"
+%include "krnl/drivers/disk.asm"
+%include "krnl/drivers/kpci.asm"
+
+; 16 bit graphics
+%include "krnl/graphics16/endl.asm"
+%include "krnl/graphics16/print.asm"
+%include "krnl/graphics16/print_hex.asm"
+%include "krnl/graphics16/promp.asm"
+
+; IO
+%include "krnl/io/ports"
+
+; String lib
+%include "krnl/string/get_arg.asm"
+%include "krnl/string/get_last_arg.asm"
+%include "krnl/string/string_compare.asm"
 
 ; Data
 %include "data/kpci_data.inc"
@@ -80,6 +76,17 @@ halt_cpu:
 %include "data/kernel_data.inc"
 %include "data/log.inc"
 %include "data/debug.inc"
+
+; Shell
+%include "krnl/shell/shell.asm"
+%include "krnl/shell/master.asm"
+%include "krnl/shell/command.asm"
+%include "krnl/shell/buffers/first.asm"
+%include "krnl/shell/buffers/second.asm"
+%include "krnl/shell/errors/long.asm"
+%include "krnl/shell/errors/no_command.asm"
+%include "krnl/shell/keys/enter.asm"
+%include "krnl/shell/keys/backspace.asm"
 
 ; idk
 nop
