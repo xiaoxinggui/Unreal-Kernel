@@ -21,7 +21,6 @@ krnl_main:
 ; only have to start doing things
 start:
     call print_endl
-    call print_endl
 
     mov si, str_loaded
     call krnl_log
@@ -92,3 +91,5 @@ halt_cpu:
 ; I put them in UNICODE because idk
 db 0x00, "K", 0x00, "E", 0x00, "R", 0x00, "N", 0x00, "E", 0x00, "L", 0x00, 0x20, 0x00, "E", 0x00, "N", 0x00, "D"
 dq 0x0000000000000000
+
+bigger_buffer:
