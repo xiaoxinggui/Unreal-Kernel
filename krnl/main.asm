@@ -5,8 +5,8 @@ org 0x0010
 jmp krnl_main
 nop
 
-db "UNREAL KERNEL   "
-db "v0.01           "
+; Add some signatures to make this kernel unique from other programs
+db "UNRª"
 
 ; Headers
 %include "headers/asm/unreal.inc"
@@ -60,11 +60,11 @@ halt_cpu:
 %include "krnl/graphics16/promp.asm"
 
 ; IO
-%include "krnl/io/ports"
+%include "krnl/io/ports.asm"
 
 ; String lib
 %include "krnl/string/get_arg.asm"
-%include "krnl/string/get_last_arg.asm"
+%include "krnl/string/last_arg.asm"
 %include "krnl/string/string_compare.asm"
 
 ; Data
@@ -88,5 +88,7 @@ halt_cpu:
 %include "krnl/shell/keys/enter.asm"
 %include "krnl/shell/keys/backspace.asm"
 
-; idk
-nop
+; Add some signatures to make this kernel unique from other programs
+; I put them in UNICODE because idk
+db 0x00, "K", 0x00, "E", 0x00, "R", 0x00, "N", 0x00, "E", 0x00, "L", 0x00, 0x20, 0x00, "E", 0x00, "N", 0x00, "D"
+dq 0x0000000000000000
