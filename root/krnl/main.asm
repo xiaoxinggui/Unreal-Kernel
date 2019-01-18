@@ -31,6 +31,8 @@ halt_cpu:
     hlt
     jmp halt_cpu
 
+    nop
+
 ; Code goes here
 ; System
 %include "krnl/system/log.asm"
@@ -76,6 +78,9 @@ halt_cpu:
 %include "data/log.inc"
 %include "data/debug.inc"
 
+; Panic
+%include "krnl/panic/panic.asm"
+
 ; Shell
 %include "krnl/shell/shell.asm"
 %include "krnl/shell/master.asm"
@@ -93,3 +98,13 @@ db 0x00, "K", 0x00, "E", 0x00, "R", 0x00, "N", 0x00, "E", 0x00, "L", 0x00, 0x20,
 dq 0x0000000000000000
 
 bigger_buffer:
+
+; DATA SIZE REFERENCE
+; Byte
+db 0x00
+; Word
+dw 0x0000
+; Dword
+dd 0x00000000
+; Qword
+dq 0x0000000000000000

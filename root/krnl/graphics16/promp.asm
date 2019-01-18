@@ -39,7 +39,7 @@ promp_key_y:
     mov byte[promp_current_selection], 0x00
 
     mov ah, 0x09
-    mov bl, 0x20
+    mov bl, 0x70
     mov cx, 0x01
     mov al, 'y'
     int 0x10
@@ -50,7 +50,7 @@ promp_key_n:
     mov byte[promp_current_selection], 0xff
 
     mov ah, 0x09
-    mov bl, 0x20
+    mov bl, 0x70
     mov cx, 0x01
     mov al, 'n'
     int 0x10
@@ -58,10 +58,9 @@ promp_key_n:
     jmp promp_wait_key
 
 promp_key_enter:
+    popa
     mov al, byte[promp_current_selection]
     call print_endl
-
-    popa
     retn
 
 start_y:
