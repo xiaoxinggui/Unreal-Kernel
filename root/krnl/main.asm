@@ -92,6 +92,9 @@ halt_cpu:
 %include "krnl/shell/keys/enter.asm"
 %include "krnl/shell/keys/backspace.asm"
 
+; Most stuff down here is just "debug", and mostly it doesn't have any use.
+; I use it mostly for reference...
+
 ; Add some signatures to make this kernel unique from other programs
 ; I put them in UNICODE because idk
 db 0x00, "K", 0x00, "E", 0x00, "R", 0x00, "N", 0x00, "E", 0x00, "L", 0x00, 0x20, 0x00, "E", 0x00, "N", 0x00, "D"
