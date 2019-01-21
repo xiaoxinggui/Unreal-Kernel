@@ -54,6 +54,7 @@ debug_command:
     mov si, str_dbg_registers
     call teleprint
 
+    mov al, 0x01
     mov si, str_dbg_ah
     call teleprint
     movzx edx, byte[dbg_dat_ah]

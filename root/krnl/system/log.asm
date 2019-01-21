@@ -1,4 +1,9 @@
 krnl_log:
+    ; SUBROUTINE
+    ;   si = pointer to null terminated
+    ;        string to print
+    ;   returns nothing
+
     pusha
     mov word[si_buffer], si
 
@@ -14,6 +19,7 @@ krnl_log:
 
     ; First time part
     mov edx, dword[temp_dword_buffer_1]
+    mov al, 0x02
     call print_hex
 
     ; Divider
@@ -23,6 +29,7 @@ krnl_log:
 
     ; Second time part
     mov edx, dword[temp_dword_buffer_2]
+    mov al, 0x02
     call print_hex
 
     mov si, char_2

@@ -7,8 +7,8 @@ teleprint:
     ; returns nothing
     mov byte[last_color], bl
 
-    cmp bl, 0x00
-    jne start_teleprint
+    or bl, bl
+    jnz start_teleprint
 
     mov byte[last_color], 0x07
 start_teleprint:

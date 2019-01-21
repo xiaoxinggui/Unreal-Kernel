@@ -74,8 +74,6 @@ enter_unreal:
     mov si, str_lkrnl
     call print
 
-    call print_endl
-
     mov ax, 0x2000
     mov es, ax
     mov ax, 0x04

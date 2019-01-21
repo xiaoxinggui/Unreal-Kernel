@@ -9,8 +9,6 @@ print:
     push si
     mov si, str_bootsector
     call teleprint
-    mov edx, dword[prints_already]
-    call print_hex
     mov si, str_bootsector_2
     call teleprint
     pop si

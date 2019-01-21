@@ -9,8 +9,8 @@
 use16
 org 0x7c00
 
-	jmp short bootloader_start
-	nop
+jmp short bootloader_start
+nop
 
 ; Make sure we are at BPB's start
 times 0x03 - ($ - $$) db 0x00
@@ -44,7 +44,7 @@ bootloader_start:
 	mov [bpbHeadsPerCylinder], dx
 
 no_change:
-	mov eax, 0x00
+	mov eax, 0x00000000
 
 floppy_ok:
 	mov ax, 0x13
@@ -59,7 +59,6 @@ floppy_ok:
 	mov al, 0x0e
 
 	pusha
-
 read_root_dir:
 	popa
 	pusha
@@ -82,7 +81,6 @@ search_dir:
 
 	mov cx, word[bpbRootEntries]
 	xor ax, ax
-
 
 next_root_entry:
 	xchg cx, dx
@@ -119,7 +117,6 @@ found_file_to_load:
 	mov al, 0x09
 
 	pusha
-
 
 read_fat:
 	popa
