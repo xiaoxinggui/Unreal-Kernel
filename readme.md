@@ -19,7 +19,9 @@ trying it out.)
 #### Dependencies
 * ``nasm``, the assembly compiler. https://nasm.us/
 * ``Python`` Version must be 3.6+. https://www.python.org/
-* ``Linux`` (check next section)
+* ``ImDisk`` https://sourceforge.net/projects/imdisk-toolkit/
+* ``qemu`` (not mandatory, only for testing) https://www.qemu.org/
+* ``Linux bash`` (check next section)
 
 #### Why need of linux?
 You need linux to build, because of the commands that it uses in the build script.
