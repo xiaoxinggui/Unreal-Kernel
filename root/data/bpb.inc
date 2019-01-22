@@ -15,6 +15,6 @@ bpbTotalSectorsBig:			dd 0x00
 bsDriveNumber:				db 0x00
 bsUnused:			    	db 0x00
 bsExtBootSignature:			db 0x29
-bsSerialNumber:				dd 0x12345678
+bsSerialNumber:				db 0xde, 0xad, 0xbe, 0xef
 bsVolumeLabel:				db "UNREAL KRNL"
 bsFileSystem:				db "FAT12   "
