@@ -15,6 +15,6 @@ bpbTotalSectorsBig:			dd 0x00
 bsDriveNumber:				db 0x00
 bsUnused:			    	db 0x00
 bsExtBootSignature:			db 0x29
-bsSerialNumber:				db 0xde, 0xad, 0xbe, 0xef
-bsVolumeLabel:				db "UNREAL KRNL"
-bsFileSystem:				db "FAT12   "
+bsSerialNumber:				db 0xde, 0xad, 0xbe, 0xef	; 3735928559
+bsVolumeLabel:				db "UNREALDISK "
+bsFileSystem:				db "FAT12   "               ; yes, our disk is a fat pig
